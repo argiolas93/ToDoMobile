@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/angular-material.min.css" rel="stylesheet">
+    
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-aria.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-material.min.js"></script>
+    <script src="js/app.js"></script>
+    
+  </head>
+  <body ng-app="ToDoMobile">
+    
+    
+    <div ng-controller="todoController">
+      <md-content>
+        
+        <md-toolbar>
+          <h2 class="md-toolbar-tools">
+            <span>ToDoMobile</span>
+          </h2>
+        </md-toolbar>
+        
+        
+        
+        <form name="frm" ng-submit="addTodo()">
+          <md-input-container>
+            <input name="txt" id="text" ng-model="txt" required>
+          </md-input-container>
+          <div class="group">
+            <section layout="row" layout-sm="column" layout-align="center center">
+              <md-button class="md-raised"  id="create" name="create" ng-disabled="frm.$invalid">Create</md-button>
+              <md-button type="button" class="md-raised"  id="clear" name="clear" ng-click="clearCompleted()">Clear</md-button>
+          </div>
+        </form>
+        
+        <div class="men">
+            <label for="selectAll">Select All: </label>
+            <input id="selectAll" name="selectAll" type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
+          </div>
+          <div class="elements">
+            <ul class="list">
+              <li ng-repeat="todo in todos track by $index">
+                <input type="checkbox" ng-model="todo.complete" ng-click="selectThis(todo)"/>
+                <span ng-class="{'complete':todo.complete}">{{todo.title}}</span>
+                <a class="del" ng-class="{'hide':!todo.complete}" ng-click="removeThis(todo)">&nbsp&nbsp&nbsp[Delete]</a>
+              </li>
+            </ul>
+          </div>
+        
+        
+        
+      </md-content>
+    </div>
+    
+    
+  </body>
+</html>

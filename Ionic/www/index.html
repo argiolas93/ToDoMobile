@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>ToDoMobile</title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="ToDoMobile">
+
+    <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">ToDoMobile</h1>
+      </ion-header-bar>
+      <ion-content>
+        
+        <div ng-controller="todoController">
+          <div class="content">
+            <form name="frm" ng-submit="addTodo()">
+              <input name="txt" id="text" type="text" ng-model="txt" placeholder="Todo" required/>
+              <div class="group">
+                <button id="create" name="create" ng-disabled="frm.$invalid">Create</button>
+                <button type="button" id="clear" name="clear" ng-click="clearCompleted()">Clear</button>
+              </div>
+            </form>
+            
+          </div>
+          <div class="men">
+            <label for="selectAll">Select All: </label>
+            <input id="selectAll" name="selectAll" type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
+          </div>
+          <div class="elements">
+            <ul class="list">
+              <li ng-repeat="todo in todos track by $index">
+                <input type="checkbox" ng-model="todo.complete" ng-click="selectThis(todo)"/>
+                <span ng-class="{'complete':todo.complete}">{{todo.title}}</span>
+                <a class="del" ng-class="{'hide':!todo.complete}" ng-click="removeThis(todo)">&nbsp&nbsp&nbsp[Delete]</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
