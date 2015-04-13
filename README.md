@@ -20,8 +20,8 @@ All applications are developed with different frameworks and all the project hav
 To use a Apache Cordova project is useful read the [documentation](http://cordova.apache.org/docs/en/4.0.0/).
 
 ##Framework
-  . [AngularMaterial](https://material.angularjs.org/)
-  . [ChocolateChip UI](http://chocolatechip-ui.com/)
-  . [Framework7](http://www.idangero.us/framework7/)
-  . [Ionic](http://ionicframework.com/)
-  . [Ratchet](http://goratchet.com/)
+  * [AngularMaterial](https://material.angularjs.org/)
+  * [ChocolateChip UI](http://chocolatechip-ui.com/)
+  * [Framework7](http://www.idangero.us/framework7/)
+  * [Ionic](http://ionicframework.com/)
+  * [Ratchet](http://goratchet.com/)
