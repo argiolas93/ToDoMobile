@@ -9,10 +9,10 @@ This is a detailed starting point, which help to select a framework for a partic
 
 ##Web Application
 The application is a basic Todo with these functions:
-  . Add todos in the list.
-  . Remove a single todo from the list.
-  . Select todos completed and delete all.
-  . Save all todos. (By localStorage)
+  * Add todos in the list.
+  * Remove a single todo from the list.
+  * Select todos completed and delete all.
+  * Save all todos. (By localStorage)
   
 ##Cordova/Phonegap
 All the project are Apache Cordova based, it allow the developer to convert each web application in a mobile application.
