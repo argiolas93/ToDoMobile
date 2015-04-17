@@ -37,6 +37,10 @@ Here are some links you may find helpful:
   * [FAQ](https://docs.angularjs.org/misc/faq)
   * [GitHub](https://github.com/angular/angular.js)
   
+##Screenshots
+![alt tag](/Other/screenshot/AngularMaterialVertical.png)
+![alt tag](/Other/screenshot/AngularMaterialOrizontal.png)
+  
 ##Running this sample
 By browser: 
 
