@@ -1,14 +1,7 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 var app = angular.module('ToDoMobile', ['ionic']);
 
   app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
       if(window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
@@ -19,6 +12,10 @@ var app = angular.module('ToDoMobile', ['ionic']);
   });
   
   app.controller('todoController',['$scope',function($scope){
+    
+    $scope.shouldShowDelete = false;
+    $scope.shouldShowReorder = false;
+    $scope.listCanSwipe = true
 
     if(JSON.parse(localStorage.getItem('selectedAll')==null)){
       $scope.selectedAll=false;
@@ -42,6 +39,7 @@ var app = angular.module('ToDoMobile', ['ionic']);
     
     
     $scope.clearCompleted = function(){
+      $scope.selectedAll=false;
       $scope.todos = $scope.todos.filter(function(item){
         return !item.complete;
       })

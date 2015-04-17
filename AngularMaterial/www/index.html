@@ -28,35 +28,33 @@
           </h2>
         </md-toolbar>
         
-        
-        
         <form name="frm" ng-submit="addTodo()">
           <md-input-container>
-            <input name="txt" id="text" ng-model="txt" required>
+            <label>Todo</label>
+            <input name="txt" id="text" ng-model="txt">
           </md-input-container>
-          <div class="group">
             <section layout="row" layout-sm="column" layout-align="center center">
-              <md-button class="md-raised"  id="create" name="create" ng-disabled="frm.$invalid">Create</md-button>
+              <md-button type="submit" class="md-raised"  id="create" name="create" ng-disabled="frm.$invalid">Create</md-button>
               <md-button type="button" class="md-raised"  id="clear" name="clear" ng-click="clearCompleted()">Clear</md-button>
-          </div>
+            </section>
         </form>
         
-        <div class="men">
-            <label for="selectAll">Select All: </label>
-            <input id="selectAll" name="selectAll" type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
-          </div>
-          <div class="elements">
-            <ul class="list">
-              <li ng-repeat="todo in todos track by $index">
-                <input type="checkbox" ng-model="todo.complete" ng-click="selectThis(todo)"/>
+        <md-checkbox ng-model="select" ng-click="selectAll()" name="selectAll" id="selectAll" aria-label="Select All">
+          Select All
+        </md-checkbox>
+        <md-list>
+          <md-list-item ng-repeat="todo in todos track by $index">
+            <div style="clear:both">
+              <md-checkbox class="btn-chk" ng-model="todo.complete" ng-change="selectThis(todo)" aria-label="todo.title">
                 <span ng-class="{'complete':todo.complete}">{{todo.title}}</span>
-                <a class="del" ng-class="{'hide':!todo.complete}" ng-click="removeThis(todo)">&nbsp&nbsp&nbsp[Delete]</a>
-              </li>
-            </ul>
-          </div>
-        
-        
-        
+              </md-checkbox>
+              <md-button class="md-icon-button btn-delete" ng-click="removeThis(todo)" aria-label="md-secondary">
+                <md-icon md-svg-icon="css/ic_delete_24px.svg"></md-icon>
+              </md-button>
+            </div>
+          </md-list-item>
+        </md-list>
+
       </md-content>
     </div>
     

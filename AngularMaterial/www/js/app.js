@@ -4,9 +4,11 @@ var app = angular.module('ToDoMobile',['ngMaterial']);
 
     if(JSON.parse(localStorage.getItem('selectedAll')==null)){
       $scope.selectedAll=false;
+      $scope.select=$scope.selectedAll;
       localStorage.setItem('selectedAll', JSON.stringify($scope.selectedAll));
     }else{
       $scope.selectedAll = JSON.parse(localStorage.getItem('selectedAll'));
+      $scope.select=$scope.selectedAll;
     }
     if(JSON.parse(localStorage.getItem('todos')==null)){
       $scope.todos = new Array();
@@ -24,10 +26,13 @@ var app = angular.module('ToDoMobile',['ngMaterial']);
     
     
     $scope.clearCompleted = function(){
+      $scope.selectedAll=false;
+      $scope.select=false;
       $scope.todos = $scope.todos.filter(function(item){
         return !item.complete;
       })
       localStorage.setItem('todos', JSON.stringify($scope.todos));
+      localStorage.setItem('selectedAll', JSON.stringify($scope.selectedAll));
     }
     
     
@@ -51,9 +56,9 @@ var app = angular.module('ToDoMobile',['ngMaterial']);
     
     $scope.selectAll=function(){
       if($scope.selectedAll){
-        $scope.selectedAll=true;
-      }else{
         $scope.selectedAll=false;
+      }else{
+        $scope.selectedAll=true;
       }
       angular.forEach($scope.todos,function(item){
         item.complete = $scope.selectedAll;

@@ -1,118 +1,152 @@
-var tmpl =  "<li>"+
-              "<input value='ID' class='check' onclick='handleClick(this)' type='checkbox'><span>TEXT</span><a class='del hide' onclick='removeThis(this)'>&nbsp&nbsp&nbsp[Delete]</a>"+
-            "<li>";
-
-var tmplChecked =  "<li>"+
-              "<input value='ID' class='check' onclick='handleClick(this)' type='checkbox' checked><span class='complete'>TEXT</span><a class='del HIDE' onclick='removeThis(this)'>&nbsp&nbsp&nbsp[Delete]</a>"+
-            "<li>";
-
+var tmpl =  "<li  class='table-view-cell'>"+
+              "<input id='ID' onclick='handleClick(this)' type='checkbox'/><span>TEXT</span><button class='btn btn-negative delete' onclick='removeThis(this)'>Delete</button>"+
+            "</li>";
 
 var id;
-var obj;
+var data;
+var selectAll;
 
-$(document).ready(function(){
-  //localStorage.clear();
-  //Load Object from localStorage
-  id=localStorage.getItem("id");//Get number of stored values
-  if(id==null)
-    id=0;
-  for(var t=0;t<id;t++){
-    obj = JSON.parse(localStorage.getItem(t));
-    $(".list").append(obj);
+$(document).ready(function(event){
+  if(JSON.parse(localStorage.getItem("selectAll"))==null){
+    selectAll=false;
+    localStorage.setItem("selectAll",JSON.stringify(selectAll));
+  }else{
+    selectAll=JSON.parse(localStorage.getItem("selectAll"));
   }
-  
-  
-  //Insert todos
+  if(selectAll==true)
+    $("#selectAll").attr('checked','checked');
+
+  if(JSON.parse(localStorage.getItem("data"))==null){
+    data = new Array();
+    id=0;
+    localStorage.setItem("id",JSON.stringify(id));
+    localStorage.setItem("data",JSON.stringify(data));
+  }else{
+    data = JSON.parse(localStorage.getItem("data"));
+    id = JSON.parse(localStorage.getItem("id"));
+    if(data.length==0){
+      id=0;
+      localStorage.setItem("id",JSON.stringify(id));
+    }
+    for(var t=0;t<data.length;t++){
+      var object=tmpl.replace("TEXT",data[t].text);
+      object=object.replace("ID",data[t].id);
+      if(data[t].complete==true){
+        $(".list").append(object);
+        $("#"+data[t].id).parent().addClass('complete');
+        $("#"+data[t].id).attr('checked','checked');
+      }else{
+        $(".list").append(object);
+      }
+    }
+  }
+
   $("#text").keyup(function(event){
     if(event.keyCode==13){
-      //Add the todo to the list
-      var t = tmpl.replace("TEXT",$("#text").val());
-      t=t.replace("ID",id);
-      $(".list").append(t);
-      //Save in localStorage
-      obj = t;
-      localStorage.setItem(id,JSON.stringify(obj));//Save obj with id key
-      id++;
-      localStorage.setItem("id",id);//Save number of stored value
+      var todo = new Object();
+      todo.id=id++;
+      todo.text=$("#text").val();
+      todo.complete=false;
+      data.push(todo);
+      var object = tmpl.replace("TEXT",todo.text);
+      object=object.replace("ID",todo.id);
+      $(".list").append(object);
+      localStorage.setItem("data",JSON.stringify(data));
+      localStorage.setItem("id",JSON.stringify(id));
+      $("#text").val("");
     }
   });
   $("#create").on('click',function(){
-    var t = tmpl.replace("TEXT",$("#text").val());
-    t=t.replace("ID",id);
-    $(".list").append(t);
-    //Save in localStorage
-    obj = t;
-    localStorage.setItem(id,JSON.stringify(obj));//Save obj with id key
-    id++;
-    localStorage.setItem("id",id);//Save number of stored value
-  });
-
-  //Clear todos
+    var todo = new Object();
+    todo.id=id++;
+    todo.text=$("#text").val();
+    todo.complete=false;
+    data.push(todo);
+    var object = tmpl.replace("TEXT",todo.text);
+    object=object.replace("ID",todo.id);
+    $(".list").append(object);
+    localStorage.setItem("data",JSON.stringify(data));
+    localStorage.setItem("id",JSON.stringify(id));
+    $("#text").val("");
+  });  
   $("#clear").on('click',function(){
-    //Select all complete to clear
+    var ndata = new Array();
     $(".list > li").each(function(){
-      if($(this).children("input").is(":checked")==true){
+      if($(this).hasClass("complete")){
         $(this).remove();
-        //Remove from localStorage
-        var h=$(this).children("input").attr("value");
-        localStorage.removeItem(h);
-        //id--;
-        localStorage.setItem("id",id);//Save number of stored value
+      }else{
+        var n = $(this).children("input").attr("id");
+        for(var t=0;t<data.length;t++){
+          if(data[t].id==n){
+            ndata.push(data[t]);
+          }
+        }
       }
     });
-    if($(".menu > input").is(":checked")==true){
-      $(".menu > input").prop('checked',false);
-    }
+    data=ndata;
+    localStorage.setItem("data",JSON.stringify(data));
+    $("#selectAll").prop('checked',false);
+    selectAll=false;
+    localStorage.setItem("selectAll",JSON.stringify(selectAll));
   });
   
-  
+  $("#selectAll").on('click',function(){
+    if($(this).is(":checked")){
+      selectAll=true;
+      $(".list > li").each(function(){
+        var n = $(this).children("input").attr("id");
+        for(var t=0;t<data.length;t++){
+          if(n==data[t].id)
+            data[t].complete=true;
+        }
+        $(this).children("input").prop('checked', true);
+        $(this).addClass("complete");
+      });
+    }else{
+      selectAll=false;
+      $(".list > li").each(function(){
+        var n = $(this).attr("id");
+        for(var t=0;t<data.length;t++){
+          if(n==data[t].id)
+            data[t].complete=false;
+        }
+        $(this).children("input").prop('checked', false);
+        $(this).removeClass("complete");
+      });  
+    }
+    localStorage.setItem("data",JSON.stringify(data));
+    localStorage.setItem("selectAll",JSON.stringify(selectAll));
+  });
 });
 
-//Handle completed todos
+function removeThis(b){
+  var n = $(b).parent().children("input").attr("id");
+  var ndata = new Array();
+  for(var t=0;t<data.length;t++){
+    if(data[t].id!=n)
+      ndata.push(data[t]);
+  }
+  data=ndata;
+  $(b).parent().remove();
+  localStorage.setItem("data",JSON.stringify(data));
+}
+
 function handleClick(cb){
   if($(cb).is(":checked")){
-    $(cb).parent().children("span").addClass("complete");
-    $(cb).parent().children("a").removeClass("hide");
-    //Update localStorage with status
-    var newID = $(cb).attr("value");
-    var text = $(cb).parent().children("span").text();
-    localStorage.removeItem(newID);
-    var t = tmplChecked.replace("TEXT",text);
-    t=t.replace("HIDE","");
-    t=t.replace("ID",newID);
-    localStorage.setItem(newID,JSON.stringify(t));
+    for(var t=0;t<data.length;t++){
+      var n = $(cb).attr("id");
+      if(n==data[t].id)
+        data[t].complete=true;
+    }
+    $(cb).parent().addClass("complete");
+    localStorage.setItem("data",JSON.stringify(data));
   }else{
-    $(cb).parent().children("span").removeClass("complete");
-    $(cb).parent().children("a").addClass("hide");
-    //Update localStorage with status
-    var newID = $(cb).attr("value");
-    var text = $(cb).parent().children("span").text();
-    localStorage.removeItem(newID);
-    var t = tmpl.replace("TEXT",text);
-    t=t.replace("HIDE","hide");
-    t=t.replace("ID",newID);
-    localStorage.setItem(newID,JSON.stringify(t));
+    for(var t=0;t<data.length;t++){
+      var n = $(cb).attr("id");
+      if(n==data[t].id)
+        data[t].complete=false;
+    }
+    $(cb).parent().removeClass("complete");
+    localStorage.setItem("data",JSON.stringify(data));
   }
-}
-
-//Select all todos
-function selectAll(cb){
-  if($(cb).is(":checked")){
-    $(".list > li").each(function(){
-      $(this).children("input").prop('checked', true);
-      $(this).children("span").addClass("complete");
-    });
-  }else{
-    $(".list > li").each(function(){
-      $(this).children("input").prop('checked', false);
-      $(this).children("span").removeClass("complete");
-    });
-  }
-}
-
-function removeThis(a){
-  localStorage.removeItem($(a).parent().children("input").attr("value"));
-  $(a).parent().remove();
-  //id--;
-  localStorage.setItem("id",id);//Save number of stored value
 }

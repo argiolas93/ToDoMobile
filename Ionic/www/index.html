@@ -24,35 +24,50 @@
   <body ng-app="ToDoMobile">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar bar-header bar-positive">
         <h1 class="title">ToDoMobile</h1>
       </ion-header-bar>
-      <ion-content>
+    <ion-content>
         
         <div ng-controller="todoController">
-          <div class="content">
-            <form name="frm" ng-submit="addTodo()">
-              <input name="txt" id="text" type="text" ng-model="txt" placeholder="Todo" required/>
-              <div class="group">
-                <button id="create" name="create" ng-disabled="frm.$invalid">Create</button>
-                <button type="button" id="clear" name="clear" ng-click="clearCompleted()">Clear</button>
+          <form name="frm" ng-submit="addTodo()">
+            <div class="list list-inset">
+              <label class="item item-input">
+                <input name="txt" id="text" type="text" ng-model="txt" placeholder="Todo"/>
+              </label>
+            </div>
+            <center>
+              <button class="button button-block button-stable" type="submit" id="create" name="create" ng-disabled="frm.$invalid">Create</button>
+            </center>
+          </form>
+          <center>
+            <button class="button button-block button-stable" id="clear" name="clear" ng-click="clearCompleted()">Clear</button>
+          </center>
+          <li class="item item-checkbox">
+            Select All
+            <label class="checkbox">
+             <input id="selectAll" name="selectAll" type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
+            </label>
+          </li>
+          <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+            <ion-item class="item" ng-repeat="todo in todos track by $index">
+              <div class="row">
+                <div class=".col" style="min-width: 50px">
+                  <label class="checkbox">
+                    <input class="chk" type="checkbox" ng-model="todo.complete" ng-click="selectThis(todo)"/>
+                  </label>
+                </div>
+                  <div class=".col">
+                  <span class="item-text-wrap" ng-class="{'complete':todo.complete}">{{todo.title}}</span>
+                  </div>
               </div>
-            </form>
-            
-          </div>
-          <div class="men">
-            <label for="selectAll">Select All: </label>
-            <input id="selectAll" name="selectAll" type="checkbox" ng-model="selectedAll" ng-click="selectAll()">
-          </div>
-          <div class="elements">
-            <ul class="list">
-              <li ng-repeat="todo in todos track by $index">
-                <input type="checkbox" ng-model="todo.complete" ng-click="selectThis(todo)"/>
-                <span ng-class="{'complete':todo.complete}">{{todo.title}}</span>
-                <a class="del" ng-class="{'hide':!todo.complete}" ng-click="removeThis(todo)">&nbsp&nbsp&nbsp[Delete]</a>
-              </li>
-            </ul>
-          </div>
+              <ion-option-button class="button-positive"
+                                 ng-click="removeThis(todo)"
+                                 ng-class="{'hide':!todo.complete}">
+                Delete
+              </ion-option-button>
+            </ion-item>
+          </ion-list>
         </div>
         
       </ion-content>

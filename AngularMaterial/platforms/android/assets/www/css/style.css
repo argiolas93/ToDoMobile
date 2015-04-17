@@ -1,67 +1,19 @@
-/* Empty. Add your own CSS if you like */
-body{
-  background-color: #F5F5F5;
-}
-
-.content{
-  max-width: 800px;
-  height: 175px;
-  margin: 0 auto;
-}
-
-#text{
-  padding: 0;
-  display: block;
-  width: 75%;
-  height: 30px;
-  margin: 0 auto;
-  border: 1px solid grey;
-  margin-top: 45px;
-  font-size: 1.4em;
-}
-
-.group{
-  padding: 0;
-  margin-left: 40%;
-  margin-right: 35%;
-}
-
 #create,#clear{
-  display: inline-block;
-  margin: 0 auto;
-  width: 80px;
-  padding-top: 2px;
-  height: 25px;
-  margin-top: 12px;
-}
-
-.men{
-  width: 100%;
-  max-height: 25px;
-}
-
-.elements{
-  margin-left: 35px;
-  margin-top: 20px;
-}
-
-.list{
-  list-style: none;
-}
-
-.del{
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.hide{
-  display: none;
-}
-
-.del:hover{
-  text-decoration: none;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .complete{
   text-decoration: line-through;
+}
+
+.btn-chk{
+  float: left;
+  margin-left: 16px;
+}
+
+.btn-delete{
+  float: right;
+  margin-right: 2px;
 }

@@ -27,19 +27,19 @@
     </header>
     <div class="content">
       
-      <div class="box">
-        <input id="text" type="text" placeholder="Todo">
-        <div class="group">
-          <button class="btn btn-default btn-responsive" id="create" name="create">Create</button>
-          <button class="btn btn-default btn-responsive" id="clear" name="clear">Clear</button>
-        </div>
-      </div>
+    <center>
+      <input id="text" type="text" placeholder="Todo">
+      <button class="btn  btn" id="create" name="create">Create</button>
+      <button class="btn  btn" id="clear" name="clear">Clear</button>
+    </center>
+      
       <div class="menu">
         <label for="selectAll">Select All: </label>
-        <input name="selectAll" type="checkbox" onclick="selectAll(this)">
+        <input name="selectAll" id="selectAll" type="checkbox"/>
       </div>
       <div class="elements">
-        <ul class="list">
+        <ul class="list table-view">
+          
         </ul>
       </div>
       

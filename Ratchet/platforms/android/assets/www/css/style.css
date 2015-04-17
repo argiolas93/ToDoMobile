@@ -1,47 +1,16 @@
-body{
-  background-color: #F5F5F5;
-}
-
-.box{
-  max-width: 800px;
-  height: 125px;
+button{
+  width: 200px;
   margin: 0 auto;
+  margin-bottom: 20px;
 }
 
-#text{
-  padding: 0;
-  display: block;
-  width: 75%;
-  height: 30px;
-  margin: 0 auto;
-  margin-top: 45px;
-  font-size: 1.4em;
+#clear,#create{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.group{
-  padding: 0;
-  margin-left: 40%;
-  margin-right: 35%;
-}
-
-#create,#clear{
-  display: inline-block;
-  margin: 0 auto;
-  width: 80px;
-  padding-top: 2px;
-  height: 25px;
-  margin-top: 12px;
-}
-
-.menu{
-  max-width: 800px;
-  height: 25px;
-  margin: 0 auto;
-  align-self: center;
-}
-
-.menu label{
-  margin-left: 10px;
+.delete{
+  width: 55px;
 }
 
 .elements{
@@ -68,4 +37,9 @@ body{
 
 .complete{
   text-decoration: line-through;
+}
+
+span{
+  margin-left: 10px;
+  margin-right: 10px;
 }

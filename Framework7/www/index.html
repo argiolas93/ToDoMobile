@@ -22,21 +22,48 @@
       <div class="view view-main">
         <div class="page">
           <div class="page-content">
-            <div class="content">
-              <input class="form-control" id="text" type="text" placeholder="Todo">
-              <div class="group">
-                <button class="btn btn-default btn-responsive" id="create" name="create">Create</button>
-                <button class="btn btn-default btn-responsive" id="clear" name="clear">Clear</button>
-              </div>
-            </div>
-            <div class="menu">
-              <label for="selectAll">Select All: </label>
-              <input name="selectAll" type="checkbox" onclick="selectAll(this)">
-            </div>
-            <div class="elements">
-              <ul class="list">
+            
+            <div class="list-block">
+              <ul>
+                <li>
+                  <div class="item-content">
+                    <div class="item-inner">
+                      <div class="item-input">
+                        <input id="text" type="text" placeholder="Todo"/>
+                      </div>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
+              
+            <button id="create" name="create" class="button button-big button-round">Create</button>
+            <button class="button button-big button-round" id="clear" name="clear">Clear</button>
+            
+            <div class="list-block">
+              <ul>
+                <li>
+                  <label class="label-checkbox item-content">
+                    <input id="selectAll" name="selectAll" type="checkbox"/>
+                    <div class="item-media">
+                      <i class="icon icon-form-checkbox"></i>
+                    </div>
+                    <div class="item-inner">
+                      <div class="item-title">Select All</div>
+                    </div>
+                  </label>
+                </li>
+              </ul>
+            </div>
+     
+            <div class="list-block">
+              <ul class="list">
+                
+                
+                
+              </ul>
+            </div>
+              
           </div>
         </div>
       </div>

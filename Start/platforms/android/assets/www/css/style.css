@@ -50,34 +50,33 @@ header h1{
 }
 
 .menu label{
-  margin-left: 100px;
+  margin-left: 10px;
   margin-right: 5px;
 }
 
 .elements{
-  margin-left: 150px;
-  margin-right: 150px;
   margin-top: 20px;
-  height: auto;
+  margin-right: 10px;
 }
 
 .list{
   list-style: none;
 }
 
-.del{
-  text-decoration: none;
-  cursor: pointer;
+.list li{
+  margin-bottom: 10px;
 }
 
-.hide{
-  display: none;
-}
-
-.del:hover{
-  text-decoration: none;
+.delete{
+  float: right;
 }
 
 .complete{
   text-decoration: line-through;
+}
+
+span{
+  margin-left: 4px;
+  max-width: 100px;
+  word-break: normal;
 }
