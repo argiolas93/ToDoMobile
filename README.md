@@ -20,7 +20,9 @@ In order to get a more complete analysis possible, we start from the general des
 
 ###Web Application Architecture(Client Side)
 First, we start by describing the structure of a normal application for the web.
-![alt tag](/Other/img/WebApp.jpg)
+<center>
+  <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/img/WebApp.jpg />
+</center>
 
   * **HTML**: Describe the structure of a web page.
   * **CSS** : Describe the User Interface style applied at all element in the HTML structure.
@@ -28,7 +30,9 @@ First, we start by describing the structure of a normal application for the web.
   
 ###Cross-Platform Mobile Application Architecture(Client Side)
 Before starting devolopment, we must consider the following structure:
-![alt tag](/Other/img/WebAppMob.jpg)
+<center>
+<img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/img/WebAppMob.jpg />
+</center>
 
   * **HTML**:        In this case, we can specify only the elements supported by the mobile devices.
   * **CSS** :        With the CSS, we want to reproduce as possible is, the User Interface and style of a native application.

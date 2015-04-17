@@ -12,6 +12,15 @@ This basic ToDo Application is built using [Bootstrap](http://getbootstrap.com/)
 ###Control (JavaScript)
 It is made using jQuery as JavaScript library.
 
+##Screenshots
+<center>
+  <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/StartVertical.png height=768 />
+</center>
+
+<center>
+  <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/StartOrizontal.png />
+</center>
+
 ##Running this sample
 By browser: 
 

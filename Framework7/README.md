@@ -23,6 +23,15 @@ Framework7 provides a set of HTML elements with specific CSS classes to implemen
 ###Control (JavaScript)
 
   * Framework7 has its own custom [DOM7](http://www.idangero.us/framework7/docs/dom.html) - DOM library that utilizes most edge and hogh-preformance methods for DOM manipulation. It has the same syntax as well known jQuery library.
+
+##Screenshots
+<img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/F7Vertical.png  width=410 />
+<img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/F7VerticalDelete.png width=410/>
+
+
+ <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/F7Orizontal.png />  
+
+<img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/F7OrizontalDelete.png />
   
 ##Running this sample
 By browser: 

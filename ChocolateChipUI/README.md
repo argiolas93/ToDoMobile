@@ -27,6 +27,15 @@ It was built for mobile devices, not for desktop use. It's therefore small and f
 
   * ChocolateChip UI provides a number of ways for add events, depending on each mobile platform.
     [Events](http://chocolatechip-ui.com/documentation.html#/chuijs)
+    
+##Screenshots
+<center>
+  <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/ChocolateVertical.png height=768 />
+</center>
+
+<center>
+  <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/ChocolateOrizontal.png />
+</center>
   
 ##Running this sample
 By browser: 
