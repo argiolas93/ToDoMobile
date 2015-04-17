@@ -39,7 +39,7 @@ Here are some links you may find helpful:
 <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicVerticalDelete.png width=410/>
 
 
- <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicOrizontal.png />  
+<img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicOrizontal.png />  
 
 <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicOrizontalDelete.png />
   
