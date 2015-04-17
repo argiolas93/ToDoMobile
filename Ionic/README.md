@@ -35,7 +35,6 @@ Here are some links you may find helpful:
   * [GitHub](https://github.com/angular/angular.js)
   
 ##Screenshots
-##Screenshots
 <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicVertical.png  width=410 />
 <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/screenshots/IonicVerticalDelete.png width=410/>
 
