@@ -38,8 +38,9 @@ Here are some links you may find helpful:
   * [GitHub](https://github.com/angular/angular.js)
   
 ##Screenshots
-![alt tag](/../Other/screenshots/AngularMaterialVertical.png)
-![alt tag](/../Other/screenshots/AngularMaterialOrizontal.png)
+![alt tag](/../Other/screenshots/AngularMaterialVertical.png =350)
+
+![alt tag](/../Other/screenshots/AngularMaterialOrizontal.png =400)
   
 ##Running this sample
 By browser: 
