@@ -1,7 +1,7 @@
-#ToDoMobile
+# ToDoMobile
 >Functional analysis of different frameworks for developing web applications on mobile devices.
 
-##What is it?
+## What is it?
 Taking inspiration from [TodoMVC example](http://todomvc.com/), I analyzed the main frameworks for developing applications on mobile devices, taking into cosideration:
 
   * The functional part, JavaScript, with which it controls the operation of an application.
@@ -9,7 +9,7 @@ Taking inspiration from [TodoMVC example](http://todomvc.com/), I analyzed the m
   
 This analysis may provide an important starting point for choosing which framework to use to develop a particular application.
 
-##Framework Analysis
+## Framework Analysis
 The Main purpose of the analysis is to understand the best way to develop a Cross-Plaform application for most mobile operating systems.
 The solution to be developed, therefore, will depend on:
 
@@ -18,7 +18,7 @@ The solution to be developed, therefore, will depend on:
 
 In order to get a more complete analysis possible, we start from the general description of a web application, then we switch to the structure of an Cross-Platform Application for mobile devices, which will use the previous web application, and concludes by introducing different frameworks that allow the passage from the first Web App to the final Mobile Web App.
 
-###Web Application Architecture(Client Side)
+### Web Application Architecture(Client Side)
 First, we start by describing the structure of a normal application for the web.
 <center>
   <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/img/WebApp.jpg />
@@ -28,7 +28,7 @@ First, we start by describing the structure of a normal application for the web.
   * **CSS** : Describe the User Interface style applied at all element in the HTML structure.
   * **JS**  : Specify the functions and make the HTML structure dinamic, allowing the control over the elements.
   
-###Cross-Platform Mobile Application Architecture(Client Side)
+### Cross-Platform Mobile Application Architecture(Client Side)
 Before starting devolopment, we must consider the following structure:
 <center>
 <img src=https://github.com/argiolas93/ToDoMobile/raw/master/Other/img/WebAppMob.jpg />
@@ -51,7 +51,7 @@ To develop and analyze a Cross-Platform Mobile application, we need to use 3 lev
   * **Control**   : JavaScript      - Functional code to allow control over Design and with OS APIs.
   * **Wrapper**   : Webview+Wrapper - Functionality and Tools to convert and use the Apps on mobile devices.
   
-###Frameworks - Technologies
+### Frameworks - Technologies
 
 |                |jQuery|AngularJS|Dom $$|Own JS|
 |----------------|:----:|:-------:|:----:|:----:|
@@ -61,7 +61,7 @@ To develop and analyze a Cross-Platform Mobile application, we need to use 3 lev
 |Ionic           |      |X        |      |      |
 |Ratchet         |      |         |      |      |
 
-###Frameworks - Design OS
+### Frameworks - Design OS
 
 |                |Android    |iOS  |Windows Phone|
 |----------------|:---------:|:---:|:-----------:|
@@ -71,7 +71,7 @@ To develop and analyze a Cross-Platform Mobile application, we need to use 3 lev
 |Ionic           |           |7    |             |
 |Ratchet         |4          |7    |             |
 
-###Frameworks - Browser Compatibility
+### Frameworks - Browser Compatibility
 |                |Android    | IOS |Windows Phone|Firefox OS   |Chrome       |Firefox      |Safari       |Opera        |IE           |
 |----------------|:---------:|:---:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
 |AngularMaterial |n-1        |n-1  |n-1          |n-1          |n-1          |n-1          |n-1          |n-1          |n-1          |
@@ -85,7 +85,7 @@ To develop and analyze a Cross-Platform Mobile application, we need to use 3 lev
   * [Ionic](http://ionicframework.com/docs/overview/#browser-support)
   * [Framework7](https://github.com/angular/material/blob/master/CHANGELOG.md)
 
-##Web Application ToDoMobile
+## Web Application ToDoMobile
 The application is a basic Todo, inspired by [TodoMVC example](http://todomvc.com/), with these functions:
 
   * Add todos in the list.
@@ -93,12 +93,12 @@ The application is a basic Todo, inspired by [TodoMVC example](http://todomvc.co
   * Select todos completed and delete all.
   * Save all todos. (By [localStorage](http://www.w3schools.com/html/html5_webstorage.asp))
   
-##Cordova/Phonegap
+## Cordova/Phonegap
 All the project are Apache Cordova based, it allow the developer to convert each web application in a mobile application.
 All applications are developed with different frameworks and all the project have the android platform installed to test it on the device.
 To use a Apache Cordova project is useful read the [documentation](http://cordova.apache.org/docs/en/4.0.0/).
 
-##Frameworks
+## Frameworks
   * [AngularMaterial](https://material.angularjs.org/)
   * [ChocolateChip UI](http://chocolatechip-ui.com/)
   * [Framework7](http://www.idangero.us/framework7/)
